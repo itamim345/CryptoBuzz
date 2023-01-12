@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './pages/Home';
+import Crypto from './pages/Crypto';
+import Trending from './pages/Trending';
+import Favourites from './pages/Favourites';
 
 const router = createBrowserRouter([
   {
@@ -13,8 +16,16 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Crypto />
       },
+      {
+        path: "/trending",
+        element: <Trending/>
+      },
+      {
+        path: "/favourites",
+        element: <Favourites/>
+      }
     ],
   },
 ]);
