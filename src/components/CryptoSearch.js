@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { CryptoContext } from "../context/CryptoContext";
 
 export default function CryptoSearch() {
   const [searchText, setSearchText] = useState("");
+  const {getSearchResult} = useContext(CryptoContext);
   const handleSearch = (e) => {
     const inputText = e.target.value;
     setSearchText(inputText);
+    getSearchResult(searchText);
   };
   return (
     <div>
