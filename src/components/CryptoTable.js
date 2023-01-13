@@ -35,12 +35,17 @@ export default function CryptoTable() {
                           <span className='uppercase'>{singleData.symbol}</span>
                         </td>
                         <td className="py-3">{singleData.name}</td>
-                        <td className="py-3">{singleData.current_price}</td>
+                        {/* In the below line, using browser Intl Api to get currency symbol */}
+                        <td className="py-3">{new Intl.NumberFormat("en-IN",{
+                            style: "currency",
+                            currency: "usd"
+                        }).format(singleData.current_price)
+                        }</td>
                         <td className="py-3">{singleData.total_volume}</td>
-                        <td className="py-3">{singleData.market_cap_change_24h}</td>
-                        <td className="py-3">{Number(singleData.price_change_percentage_1h_in_currency).toFixed(2)}</td>
-                        <td className="py-3">{Number(singleData.price_change_percentage_24h_in_currency).toFixed(2)}</td>
-                        <td className="py-3">{Number(singleData.price_change_percentage_7d_in_currency).toFixed(2)}</td>
+                        <td className="py-3">{singleData.market_cap_change_24h}%</td>
+                        <td className={singleData.price_change_percentage_1h_in_currency > 0 ? "py-3 text-green-600" : "py-3 text-red-600"}>{Number(singleData.price_change_percentage_1h_in_currency).toFixed(2)}</td>
+                        <td className={singleData.price_change_percentage_24h_in_currency > 0 ? "py-3 text-green-600" : "py-3 text-red-600"}>{Number(singleData.price_change_percentage_24h_in_currency).toFixed(2)}</td>
+                        <td className={singleData.price_change_percentage_7d_in_currency > 0 ? "py-3 text-green-600" : "py-3 text-red-600"}>{Number(singleData.price_change_percentage_7d_in_currency).toFixed(2)}</td>
                       </tr>
                     );
                 })
