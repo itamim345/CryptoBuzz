@@ -13,6 +13,10 @@ const SearchInput = ({ handleDebounce }) => {
     setSearchText(inputText);
     handleDebounce(searchText);
   };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleDebounce(searchText);
+  }
   const selectCoinSet = (coin) => {
     setCoinSearched(coin);
     setSearchText("");
@@ -20,13 +24,11 @@ const SearchInput = ({ handleDebounce }) => {
   }
   return (
     <>
-      <form
-        onChange={handleSearch}
-        value={searchText}
-        className="flex gap-1 items-center w-25"
-      >
+      <form className="flex gap-1 items-center w-25" onClick={handleSubmit}>
         <input
           type="text"
+          onChange={handleSearch}
+          value={searchText}
           name="searchInput"
           className="w-full bg-zinc-600 rounded outline-0 p-1 border border-transparent focus:border-yellow-300 outline-none"
           placeholder="search.."
