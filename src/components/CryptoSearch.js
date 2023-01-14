@@ -1,16 +1,17 @@
+import debounce from "lodash.debounce";
 import React, { useContext, useState } from "react";
 import { CryptoContext } from "../context/CryptoContext";
 
-export default function CryptoSearch() {
+const SearchInput = ({ handleDebounce }) => {
   const [searchText, setSearchText] = useState("");
-  const {getSearchResult} = useContext(CryptoContext);
+
   const handleSearch = (e) => {
     const inputText = e.target.value;
     setSearchText(inputText);
-    getSearchResult(searchText);
+    handleDebounce(searchText);
   };
   return (
-    <div>
+    <>
       <form
         onChange={handleSearch}
         value={searchText}
@@ -34,6 +35,21 @@ export default function CryptoSearch() {
           <li>Jkl</li>
         </ul>
       ) : null}
+    </>
+  );
+};
+
+export default function CryptoSearch() {
+  const {getSearchResult} = useContext(CryptoContext);
+
+  const debounceFunc = debounce((val) => {
+    getSearchResult(val)
+  },2000)
+
+  
+  return (
+    <div>
+      <SearchInput handleDebounce={debounceFunc}/>
     </div>
   );
 }
