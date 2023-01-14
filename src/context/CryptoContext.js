@@ -6,7 +6,7 @@ export const CryptoContext = createContext({});
 //Provider
 export const CryptoProvider = ({children}) => {
     const [cryptoInfo, setCryptoInfo] = useState();
-    const [searchResult, setSearchResult] = useState();
+    const [searchResult, setSearchResult] = useState([]);
 
     const getcryptoInfo = async() => {
         try {
@@ -25,7 +25,7 @@ export const CryptoProvider = ({children}) => {
             )
               .then((resp) => resp.json())
               .then((data) => data);
-            setSearchResult(result);
+            setSearchResult(result.coins);
             console.log(result);
         } catch (error) {
             console.log(error);

@@ -4,6 +4,7 @@ import { CryptoContext } from "../context/CryptoContext";
 
 const SearchInput = ({ handleDebounce }) => {
   const [searchText, setSearchText] = useState("");
+  let { searchResult } = useContext(CryptoContext);
 
   const handleSearch = (e) => {
     const inputText = e.target.value;
@@ -29,10 +30,15 @@ const SearchInput = ({ handleDebounce }) => {
       </form>
       {searchText.length > 0 ? (
         <ul className="bg-zinc-800 rounded absolute p-2 w-48 bg-opacity-90">
-          <li>Abc</li>
-          <li>Def</li>
-          <li>Ghi</li>
-          <li>Jkl</li>
+          {searchResult ? searchResult.map((coin) => {
+                return (
+                  <li key={coin.id} className="flex items-center gap-2 py-2">
+                    <img src={coin.thumb} alt={coin.thumb} className="h-6 w-6" />
+                    <span>{coin.name}</span>
+                  </li>
+                );
+              })
+            : 'wait...'}
         </ul>
       ) : null}
     </>
@@ -40,16 +46,15 @@ const SearchInput = ({ handleDebounce }) => {
 };
 
 export default function CryptoSearch() {
-  const {getSearchResult} = useContext(CryptoContext);
+  const { getSearchResult } = useContext(CryptoContext);
 
   const debounceFunc = debounce((val) => {
-    getSearchResult(val)
-  },2000)
+    getSearchResult(val);
+  }, 2000);
 
-  
   return (
     <div>
-      <SearchInput handleDebounce={debounceFunc}/>
+      <SearchInput handleDebounce={debounceFunc} />
     </div>
   );
 }
