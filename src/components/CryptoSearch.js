@@ -4,15 +4,19 @@ import { CryptoContext } from "../context/CryptoContext";
 
 const SearchInput = ({ handleDebounce }) => {
   const [searchText, setSearchText] = useState("");
-  let { searchResult, setCoinSearched } = useContext(CryptoContext);
+  let { searchResult, setCoinSearched, setSearchResult } =
+    useContext(CryptoContext);
 
-  const handleSearch = (e) => {
-    const inputText = e.target.value;
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const inputText = event.target.value;
     setSearchText(inputText);
     handleDebounce(searchText);
   };
   const selectCoinSet = (coin) => {
     setCoinSearched(coin);
+    setSearchText("");
+    setSearchResult("");
   }
   return (
     <>
@@ -24,7 +28,7 @@ const SearchInput = ({ handleDebounce }) => {
         <input
           type="text"
           name="searchInput"
-          className="w-full bg-zinc-600 rounded outline-0 p-1 border border-transparent focus:border-yellow-300"
+          className="w-full bg-zinc-600 rounded outline-0 p-1 border border-transparent focus:border-yellow-300 outline-none"
           placeholder="search.."
         />
         <button type="submit">
@@ -32,16 +36,25 @@ const SearchInput = ({ handleDebounce }) => {
         </button>
       </form>
       {searchText.length > 0 ? (
-        <ul className="bg-zinc-800 rounded absolute p-2 w-48 bg-opacity-90">
-          {searchResult ? searchResult.map((coin) => {
-                return (
-                  <li key={coin.id} onClick={() => selectCoinSet(coin.id)} className="flex items-center gap-2 py-2">
-                    <img src={coin.thumb} alt={coin.thumb} className="h-6 w-6" />
-                    <span>{coin.name}</span>
-                  </li>
-                );
-              })
-            : 'wait...'}
+        <ul className="bg-zinc-800 rounded absolute p-2 w-48 h-[50vh] overflow-y-scroll bg-opacity-90">
+          {searchResult.length > 0 ? (
+            searchResult.map((coin) => {
+              return (
+                <li
+                  key={coin.id}
+                  onClick={() => selectCoinSet(coin.id)}
+                  className="flex items-center gap-2 py-2"
+                >
+                  <img src={coin.thumb} alt={coin.thumb} className="h-6 w-6" />
+                  <span>{coin.name}</span>
+                </li>
+              );
+            })
+          ) : (
+            <div className="h-full w-full flex justify-center items-center">
+              <div className="w-8 h-8 border-4 border-yellow-400 rounded-full animate-spin border-b-black"></div>
+            </div>
+          )}
         </ul>
       ) : null}
     </>

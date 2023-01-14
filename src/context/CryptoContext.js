@@ -8,7 +8,7 @@ export const CryptoProvider = ({children}) => {
     const [cryptoInfo, setCryptoInfo] = useState();
     const [searchResult, setSearchResult] = useState([]);
     const [coinSearched, setCoinSearched] = useState("");
-    
+
     const getcryptoInfo = async () => {
       try {
         const info = await fetch(
@@ -40,7 +40,7 @@ export const CryptoProvider = ({children}) => {
     }, [coinSearched])
 
     return (
-        <CryptoContext.Provider value={{cryptoInfo,searchResult,getSearchResult, setCoinSearched}}>
+        <CryptoContext.Provider value={{cryptoInfo,searchResult,getSearchResult, setCoinSearched, setSearchResult}}>
             {children}
         </CryptoContext.Provider>
     )
