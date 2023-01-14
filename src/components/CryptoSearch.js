@@ -38,16 +38,16 @@ const SearchInput = ({ handleDebounce }) => {
         </button>
       </form>
       {searchText.length > 0 ? (
-        <ul className="bg-zinc-800 rounded absolute p-2 w-48 h-[50vh] overflow-y-scroll bg-opacity-90">
+        <ul className="bg-black rounded absolute w-48 h-[50vh] overflow-y-scroll backdrop-blur-3xl opacity-95">
           {searchResult.length > 0 ? (
             searchResult.map((coin) => {
               return (
                 <li
                   key={coin.id}
                   onClick={() => selectCoinSet(coin.id)}
-                  className="flex items-center gap-2 py-2"
+                  className="flex items-center gap-2 p-2 hover:border hover:border-yellow-400 rounded cursor-pointer"
                 >
-                  <img src={coin.thumb} alt={coin.thumb} className="h-6 w-6" />
+                  <img src={coin.thumb} alt={coin.id} className="h-6 w-6" />
                   <span>{coin.name}</span>
                 </li>
               );
