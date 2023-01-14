@@ -4,13 +4,16 @@ import { CryptoContext } from "../context/CryptoContext";
 
 const SearchInput = ({ handleDebounce }) => {
   const [searchText, setSearchText] = useState("");
-  let { searchResult } = useContext(CryptoContext);
+  let { searchResult, setCoinSearched } = useContext(CryptoContext);
 
   const handleSearch = (e) => {
     const inputText = e.target.value;
     setSearchText(inputText);
     handleDebounce(searchText);
   };
+  const selectCoinSet = (coin) => {
+    setCoinSearched(coin);
+  }
   return (
     <>
       <form
@@ -32,7 +35,7 @@ const SearchInput = ({ handleDebounce }) => {
         <ul className="bg-zinc-800 rounded absolute p-2 w-48 bg-opacity-90">
           {searchResult ? searchResult.map((coin) => {
                 return (
-                  <li key={coin.id} className="flex items-center gap-2 py-2">
+                  <li key={coin.id} onClick={() => selectCoinSet(coin.id)} className="flex items-center gap-2 py-2">
                     <img src={coin.thumb} alt={coin.thumb} className="h-6 w-6" />
                     <span>{coin.name}</span>
                   </li>
