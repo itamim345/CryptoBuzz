@@ -10,6 +10,7 @@ export default function CryptoFilter() {
     e.preventDefault();
     let currencyInput = currencyRef.current.value;
     setCurrency(currencyInput);
+    currencyRef.current.value = "";
   }
 
 
