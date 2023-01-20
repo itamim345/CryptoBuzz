@@ -3,7 +3,7 @@ import { CryptoContext } from '../context/CryptoContext';
 import CryptoSearch from './CryptoSearch';
 
 export default function CryptoFilter() {
-  const setCurrency = useContext(CryptoContext);
+  const {setCurrency} = useContext(CryptoContext);
   const currencyRef = useRef(null);
 
   const handleCurrencySubmit = (e) => {
