@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { CryptoContext } from '../context/CryptoContext';
 
 export default function CryptoTable() {
-    const {cryptoInfo} = useContext(CryptoContext);
+    const {cryptoInfo, currency} = useContext(CryptoContext);
   return (
     <div className="border rounded border-gray-200 mt-8">
       {cryptoInfo && (
@@ -38,7 +38,7 @@ export default function CryptoTable() {
                         {/* In the below line, using browser Intl Api to get currency symbol */}
                         <td className="py-3">{new Intl.NumberFormat("en-IN",{
                             style: "currency",
-                            currency: "usd"
+                            currency: currency
                         }).format(singleData.current_price)
                         }</td>
                         <td className="py-3">{singleData.total_volume}</td>
