@@ -93,7 +93,7 @@ export default function CryptoTable() {
       </div>
       <div id="crypto-footer" className='flex justify-between items-center'>
         <p className=''>Data from <a href="https://www.coingecko.com/">CoinGecko</a></p>
-        <p>Mady with ❤ By <a href="http://www.googel.com" className='text-yellow-400'>AF Tamim</a> </p>
+        <p>Made with ❤ By <a href="http://www.googel.com" className='text-yellow-400'>AF Tamim</a> </p>
         <PageNav/>
       </div>
     </div>
