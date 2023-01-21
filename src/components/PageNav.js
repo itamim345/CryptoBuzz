@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { CryptoContext } from '../context/CryptoContext';
 
 export default function PageNav() {
-    const {page, setPage} = useContext(CryptoContext);
+    const { page, setPage} = useContext(CryptoContext);
     const prev = () => {
         if (page>1) {
             setPage(page-1)

@@ -94,7 +94,7 @@ export default function CryptoTable() {
       <div id="crypto-footer" className='flex justify-between items-center'>
         <p className=''>Data from <a href="https://www.coingecko.com/">CoinGecko</a></p>
         <p>Made with ❤ By <a href="http://www.googel.com" className='text-yellow-400'>AF Tamim</a> </p>
-        <PageNav/>
+        {cryptoInfo.length > 2 ? <PageNav/> : ""}
       </div>
     </div>
   );

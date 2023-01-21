@@ -5,7 +5,7 @@ export const CryptoContext = createContext({});
 
 //Provider
 export const CryptoProvider = ({children}) => {
-    const [cryptoInfo, setCryptoInfo] = useState();
+    const [cryptoInfo, setCryptoInfo] = useState([]);
     const [searchResult, setSearchResult] = useState([]);
     const [coinSearched, setCoinSearched] = useState("");
     const [currency, setCurrency] = useState("usd");

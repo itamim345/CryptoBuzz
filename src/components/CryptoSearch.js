@@ -38,7 +38,7 @@ const SearchInput = ({ handleDebounce }) => {
         </button>
       </form>
       {searchText.length > 0 ? (
-        <ul className="bg-black rounded absolute w-48 h-[50vh] overflow-y-scroll backdrop-blur-3xl opacity-95 scrollbar-thin scrollbar-thumb-zinc-300 scrollbar-track-zinc-500">
+        <ul className="bg-black rounded absolute w-48 h-[50vh] overflow-y-scroll backdrop-blur-3xl opacity-95">
           {searchResult.length > 0 ? (
             searchResult.map((coin) => {
               return (
