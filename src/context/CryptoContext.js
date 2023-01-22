@@ -6,12 +6,25 @@ export const CryptoContext = createContext({});
 //Provider
 export const CryptoProvider = ({children}) => {
     const [cryptoInfo, setCryptoInfo] = useState([]);
+    const [coinInfo, setCoinInfo] = useState();
     const [searchResult, setSearchResult] = useState([]);
     const [coinSearched, setCoinSearched] = useState("");
     const [currency, setCurrency] = useState("usd");
     const [sortBy, setSortBy] = useState("market_cap_desc");
     const [page, setPage] = useState(1);
 
+    const getcoinInfo = async (coinId) => {
+      try {
+        const info = await fetch(
+          `https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=true&sparkline=false`
+        )
+          .then((resp) => resp.json())
+          .then((data) => data);
+          setCoinInfo(info);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     const getcryptoInfo = async () => {
       try {
         const info = await fetch(
@@ -43,7 +56,7 @@ export const CryptoProvider = ({children}) => {
     }, [coinSearched,currency,sortBy,page])
 
     return (
-        <CryptoContext.Provider value={{cryptoInfo,searchResult,getSearchResult, setCoinSearched, setSearchResult, currency, setCurrency, setSortBy, page, setPage}}>
+        <CryptoContext.Provider value={{cryptoInfo,searchResult,getSearchResult, setCoinSearched, setSearchResult, currency, setCurrency, setSortBy, page, setPage, coinInfo, getcoinInfo}}>
             {children}
         </CryptoContext.Provider>
     )
