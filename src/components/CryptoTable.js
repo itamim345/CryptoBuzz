@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { CryptoContext } from '../context/CryptoContext';
 import PageNav from './PageNav';
 
@@ -32,14 +33,23 @@ export default function CryptoTable() {
                       <button className="outline-0 border-0 bg-none cursor-pointer">
                         <i className="ri-heart-line text-2xl hover:text-yellow-400"></i>
                       </button>
-                      <img
-                        src={singleData.image}
-                        alt={singleData.name}
-                        className="h-6 w-6"
-                      />
-                      <span className="uppercase">{singleData.symbol}</span>
+
+                      <Link to={`/${singleData.id}`}>
+                        <img
+                          src={singleData.image}
+                          alt={singleData.name}
+                          className="h-6 w-6"
+                        />
+                      </Link>
+                      <span className="uppercase">
+                        <Link to={`/${singleData.id}`}>
+                          {singleData.symbol}
+                        </Link>
+                      </span>
                     </td>
-                    <td className="py-3">{singleData.name}</td>
+                    <td className="py-3">
+                      <Link to={`/${singleData.id}`}>{singleData.name}</Link>
+                    </td>
                     {/* In the below line, using browser Intl Api to get currency symbol */}
                     <td className="py-3">
                       {new Intl.NumberFormat("en-IN", {
