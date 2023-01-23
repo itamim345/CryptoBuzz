@@ -13,8 +13,8 @@ export const TrendingProvider = ({ children }) => {
         `https://api.coingecko.com/api/v3/search/trending`
       )
         .then((resp) => resp.json())
-        .then((data) => data);
-      setTrendingInfo(info);
+        .then((data) => data.coins);
+        setTrendingInfo(info);
     } catch (error) {
       console.log(error);
     }
