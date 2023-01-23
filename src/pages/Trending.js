@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Trending() {
   return (
-    <div>
+    <div className='w-3/4 h-full'>
       Trending
     </div>
   );
