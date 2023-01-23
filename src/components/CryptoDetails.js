@@ -2,6 +2,7 @@ import React, { useContext, useLayoutEffect } from "react";
 import ReactDOM from "react-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { CryptoContext } from "../context/CryptoContext";
+import CryptoChart from "./CryptoChart";
 export default function CryptoDetails() {
   let { coinId } = useParams();
   let navigate = useNavigate();
@@ -22,7 +23,7 @@ export default function CryptoDetails() {
       onClick={closeModal}
     >
       <div
-        className="w-[70%] min-h-[80%] bg-zinc-800 bg-opacity-90 rounded-md text-white"
+        className="w-[70%] h-[80%] bg-zinc-800 bg-opacity-90 rounded-md text-white"
         onClick={(e) => e.stopPropagation()}
       >
         {coinInfo ? (
@@ -156,7 +157,9 @@ export default function CryptoDetails() {
                 </div>
               </div>
             </div>
-            <div className="bg-pink-600 h-full w-[50%] text-center">Under Progress!</div>
+            <div className="h-full w-[50%] text-center">
+              <CryptoChart id={coinInfo.id} />
+            </div>
           </div>
         ) : (
           ""
