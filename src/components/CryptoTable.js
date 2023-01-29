@@ -14,9 +14,9 @@ export default function CryptoTable() {
               <tr>
                 <th className="py-1 font-medium">#</th>
                 <th className="py-1 font-medium">NAME</th>
-                <th className="py-1 font-medium">PRICE</th>
+                <th className="py-1 font-medium hidden sm:block">PRICE</th>
                 <th className="py-1 font-medium">VOLUME</th>
-                <th className="py-1 font-medium">MARKET CAP CHANGE</th>
+                <th className="py-1 font-medium hidden sm:block">MARKET CAP CHANGE</th>
                 <th className="py-1 font-medium">1H</th>
                 <th className="py-1 font-medium">24H</th>
                 <th className="py-1 font-medium">7D</th>
@@ -51,14 +51,14 @@ export default function CryptoTable() {
                       <Link to={`/${singleData.id}`}>{singleData.name}</Link>
                     </td>
                     {/* In the below line, using browser Intl Api to get currency symbol */}
-                    <td className="py-3">
+                    <td className="py-3 hidden sm:block">
                       {new Intl.NumberFormat("en-IN", {
                         style: "currency",
                         currency: currency,
                       }).format(singleData.current_price)}
                     </td>
                     <td className="py-3">{singleData.total_volume}</td>
-                    <td className="py-3">
+                    <td className="py-3 hidden sm:block">
                       {singleData.market_cap_change_24h}%
                     </td>
                     <td
@@ -101,7 +101,7 @@ export default function CryptoTable() {
           </table>
         )}
       </div>
-      <div id="crypto-footer" className='flex justify-between items-center'>
+      <div id="crypto-footer" className='flex justify-between items-center flex-col-reverse sm:flex-row gap-2 sm:gap-0'>
         <p className=''>Data from <a href="https://www.coingecko.com/">CoinGecko</a></p>
         <p>Made with ❤ By <a href="http://www.googel.com" className='text-yellow-400'>AF Tamim</a> </p>
         {cryptoInfo.length > 2 ? <PageNav/> : ""}

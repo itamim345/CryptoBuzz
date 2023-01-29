@@ -12,7 +12,7 @@ export default function PageNav() {
         setPage(page+1)
     }
   return (
-    <div className='flex items-center gap-2 text-4xl text-yellow-400'>
+    <div className='flex items-center gap-2 text-4xl text-yellow-400 mt-2 sm:mt-2'>
       <span onClick={prev}>
         <i className="ri-arrow-left-circle-line cursor-pointer"></i>
       </span>
