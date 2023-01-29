@@ -18,7 +18,7 @@ export default function PageNav() {
       </span>
       <span className='text-white text-lg rounded-full bg-gray-600 h-8 w-8 flex justify-center items-center'>{page}</span>
       <span onClick={next}>
-        <i class="ri-arrow-right-circle-line cursor-pointer"></i>
+        <i className="ri-arrow-right-circle-line cursor-pointer"></i>
       </span>
     </div>
   );

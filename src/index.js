@@ -6,7 +6,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './pages/Home';
 import Crypto from './pages/Crypto';
 import Trending from './pages/Trending';
-import Favourites from './pages/Favourites';
 import CryptoDetails from './components/CryptoDetails';
 
 const router = createBrowserRouter([
@@ -33,10 +32,6 @@ const router = createBrowserRouter([
             element: <CryptoDetails />
           },
         ],
-      },
-      {
-        path: "/favourites",
-        element: <Favourites />,
       },
     ],
   },
