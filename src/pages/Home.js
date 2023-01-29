@@ -11,7 +11,6 @@ export default function Home() {
       <TrendingProvider>
         <div className="h-full w-full flex flex-col items-center content-center text-white relative pb-8">
           <div className="bg-zinc-900 w-screen h-screen fixed -z-20"></div>
-          <Logo />
           <Navbar />
           <Outlet />
         </div>
