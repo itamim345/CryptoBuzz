@@ -23,27 +23,27 @@ export default function CryptoDetails() {
       onClick={closeModal}
     >
       <div
-        className="w-[70%] h-[80%] bg-zinc-800 bg-opacity-90 rounded-md text-white"
+        className="w-[70%] h-[70%] md:h-[80%] bg-zinc-800 bg-opacity-90 rounded-md text-white"
         onClick={(e) => e.stopPropagation()}
       >
         {coinInfo ? (
           <div className="flex justify-between items-center h-full p-2">
-            <div className="h-full w-[50%] pr-2">
+            <div className="h-full w-full md:w-[50%] pr-2 ">
               <div className="flex justify-center items-center gap-3 pb-1">
                 <img
                   src={coinInfo.image.large}
                   alt={coinInfo.id}
                   className="w-[3rem]"
                 />
-                <h2 className="text-lg">{coinInfo.name}</h2>
+                <h2 className=" text-base xl:text-lg">{coinInfo.name}</h2>
                 <span className="uppercase bg-yellow-700 py-1 px-2 rounded bg-opacity-90">
                   {coinInfo.symbol}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-lg text-zinc-400">Price</span>
+                <span className=" text-base xl:text-lg text-zinc-400">Price</span>
                 <div>
-                  <span className=" bg-red-700 p-1 rounded bg-opacity-50">
+                  <span className=" bg-red-700 p-1 rounded bg-opacity-50 text-sm">
                     {Number(
                       coinInfo.market_data.price_change_percentage_24h
                     ).toFixed(2)}
@@ -51,7 +51,7 @@ export default function CryptoDetails() {
                   </span>
                 </div>
               </div>
-              <h2 className="text-xl font-semibold">
+              <h2 className="text-sm font-semibold">
                 {new Intl.NumberFormat("en-IN", {
                   style: "currency",
                   currency: currency,
@@ -59,20 +59,20 @@ export default function CryptoDetails() {
                 }).format(coinInfo.market_data.current_price[currency])}
               </h2>
               <div className="flex justify-between mt-3">
-                <span className="text-base text-zinc-400">Market Cap</span>
-                <span className="text-base text-zinc-400">
+                <span className="text-sm text-zinc-400">Market Cap</span>
+                <span className="text-sm text-zinc-400">
                   Fully Diluted Valuation
                 </span>
               </div>
               <div className="flex justify-between">
-                <h2 className="text-lg font-semibold">
+                <h2 className="text-sm font-semibold">
                   {new Intl.NumberFormat("en-IN", {
                     style: "currency",
                     currency: currency,
                     minimumFractionDigits: 0,
                   }).format(coinInfo.market_data.market_cap[currency])}
                 </h2>
-                <h2 className="text-lg font-semibold">
+                <h2 className="text-sm font-semibold">
                   {new Intl.NumberFormat("en-IN", {
                     style: "currency",
                     currency: currency,
@@ -83,8 +83,8 @@ export default function CryptoDetails() {
                 </h2>
               </div>
               <div className="mt-4">
-                <span className="text-base text-zinc-400">Total Volume</span>
-                <h2 className="text-lg font-semibold">
+                <span className="text-sm text-zinc-400">Total Volume</span>
+                <h2 className="text-sm font-semibold">
                   {new Intl.NumberFormat("en-IN", {
                     style: "currency",
                     currency: currency,
@@ -93,18 +93,18 @@ export default function CryptoDetails() {
                 </h2>
               </div>
               <div className="flex justify-between mt-3">
-                <span className="text-base text-zinc-400">Low 24H</span>
-                <span className="text-base text-zinc-400">High 24H</span>
+                <span className="text-sm text-zinc-400">Low 24H</span>
+                <span className="text-sm text-zinc-400">High 24H</span>
               </div>
               <div className="flex justify-between">
-                <h2 className="text-lg font-semibold">
+                <h2 className="text-sm font-semibold">
                   {new Intl.NumberFormat("en-IN", {
                     style: "currency",
                     currency: currency,
                     minimumFractionDigits: 5,
                   }).format(coinInfo.market_data.low_24h[currency])}
                 </h2>
-                <h2 className="text-lg font-semibold">
+                <h2 className="text-sm font-semibold">
                   {new Intl.NumberFormat("en-IN", {
                     style: "currency",
                     currency: currency,
@@ -113,20 +113,20 @@ export default function CryptoDetails() {
                 </h2>
               </div>
               <div className="flex justify-between mt-3">
-                <span className="text-base text-zinc-400">Max Supply</span>
-                <span className="text-base text-zinc-400">
+                <span className="text-sm text-zinc-400">Max Supply</span>
+                <span className="text-sm text-zinc-400">
                   Circulating Supply
                 </span>
               </div>
               <div className="flex justify-between">
-                <h2 className="text-lg font-semibold">
+                <h2 className="text-sm font-semibold">
                   {new Intl.NumberFormat("en-IN", {
                     style: "currency",
                     currency: currency,
                     minimumFractionDigits: 0,
                   }).format(coinInfo.market_data.max_supply)}
                 </h2>
-                <h2 className="text-lg font-semibold">
+                <h2 className="text-sm font-semibold">
                   {new Intl.NumberFormat("en-IN", {
                     style: "currency",
                     currency: currency,
@@ -134,7 +134,7 @@ export default function CryptoDetails() {
                   }).format(coinInfo.market_data.circulating_supply)}
                 </h2>
               </div>
-              <div className="mt-3 flex justify-between items-center">
+              <div className="mt-3 flex flex-col sm:flex-row gap-3 justify-between items-center">
                 <a
                   href={coinInfo?.links?.homepage[0]}
                   className="bg-zinc-500 p-1 rounded bg-opacity-50 text-zinc-400 text-xs"
@@ -143,9 +143,9 @@ export default function CryptoDetails() {
                 >
                   {coinInfo?.links?.homepage[0]}
                 </a>
-                <div className="flex gap-3">
-                  <span className="text-base text-zinc-400">Sentiment: </span>
-                  <span className=" bg-green-700 p-0.5 rounded bg-opacity-50">
+                <div>
+                  <span className="text-sm text-zinc-400">Sentiment: </span>
+                  <span className=" bg-green-700 p-0.5 rounded bg-opacity-50 mr-1">
                     {Number(coinInfo.sentiment_votes_up_percentage).toFixed(2)}%
                   </span>
                   <span className=" bg-red-700 p-0.5 rounded bg-opacity-50">
@@ -157,7 +157,7 @@ export default function CryptoDetails() {
                 </div>
               </div>
             </div>
-            <div className="h-full w-[50%] text-center">
+            <div className="h-full w-[50%] text-center hidden md:block">
               <CryptoChart id={coinInfo.id} />
             </div>
           </div>

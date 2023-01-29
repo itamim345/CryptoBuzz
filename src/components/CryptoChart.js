@@ -68,7 +68,7 @@ export default function CryptoChart({id}) {
       getChartInfo(id)
     }, [id,type,days]);
   return (
-    <div className="w-full h-[98%]">
+    <div className="w-full h-[85%] lg:h-[98%]">
       <ChartComponent chartData={chartData} currency={currency} type={type} />
       <div>
         <button onClick={() => setType("prices")} className={`text-sm py-0.5 px-1 bg-zinc-900 border opacity-90 border-white rounded mr-1 ${type==='prices' ? 'bg-yellow-400 text-black border-black' : ''}`}>Price</button>

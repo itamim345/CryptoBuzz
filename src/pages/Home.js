@@ -1,6 +1,5 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Logo from "../components/Logo";
 import Navbar from "../components/Navbar";
 import { CryptoProvider } from "../context/CryptoContext";
 import { TrendingProvider } from "../context/TrendingContext";
