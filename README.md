@@ -1,3 +1,35 @@
+
+# CryptoBuzz
+## Introduction
+
+In this project, I have tried to make a React Crypto market details Website.
+
+ - User can search any coin.
+
+ - User can click any coin and get the coin details with Chart.
+ 
+ - User can change the currency.
+
+ - User can filter the data.
+
+## *Technology Used:*
+React JS, React hooks, React Context, Tailwind CSS.
+
+
+
+## Preview
+
+![App Screenshot](./src/images/Homepage-ss.png)
+
+## Live Link
+
+ - [Click here to visit](https://cryptobuzz01.netlify.app/)
+ 
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
