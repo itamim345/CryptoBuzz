@@ -19,7 +19,7 @@ React JS, React hooks, React Context, Tailwind CSS.
 
 ## Preview
 
-![App Screenshot](./src/images/Homepage-ss.png)
+![App Screenshot](https://i.ibb.co/PWscDYN/Homepage-ss.png)
 
 ## Live Link
 
