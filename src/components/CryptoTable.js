@@ -29,10 +29,10 @@ export default function CryptoTable() {
                     key={singleData.id}
                     className="text-sm hover:bg-zinc-800 border-b border-gray-200 last:border-b-0"
                   >
-                    <td className="py-3 flex items-center gap-1">
-                      <button className="outline-0 border-0 bg-none cursor-pointer">
+                    <td className="py-3 flex items-center justify-center gap-1">
+                      {/* <button className="outline-0 border-0 bg-none cursor-pointer">
                         <i className="ri-heart-line text-2xl hover:text-yellow-400"></i>
-                      </button>
+                      </button> */}
 
                       <Link to={`/${singleData.id}`}>
                         <img
