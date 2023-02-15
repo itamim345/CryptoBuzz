@@ -102,7 +102,7 @@ export default function CryptoTable() {
         )}
       </div>
       <div id="crypto-footer" className='flex justify-between items-center flex-col-reverse sm:flex-row gap-2 sm:gap-0'>
-        <p className=''>Data from <a href="https://www.coingecko.com/">CoinGecko</a></p>
+        <p className=''>Data Provided By <a href="https://www.coingecko.com/">CoinGecko</a></p>
         <p>Made with ❤ By <a href="http://www.linkedin.com/in/aftamim345/" rel="noreferrer" target="_blank" className='text-yellow-400'>Abdul Fattah</a> </p>
         {cryptoInfo.length > 2 ? <PageNav/> : ""}
       </div>
